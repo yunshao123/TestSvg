@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 animatorSet.playTogether(animator,animator2);
                 animatorSet.setTarget(imageView2);
                 animatorSet.start();
-
+                
                 imageView.setVisibility(View.VISIBLE);
                 Animator animator3 = AnimatorInflater.loadAnimator(MainActivity.this,R.animator.alpha_fade_in);
                 Animator animator4 = AnimatorInflater.loadAnimator(MainActivity.this,R.animator.alpha);
@@ -87,5 +87,14 @@ public class MainActivity extends AppCompatActivity {
                 animation.cancel();
             }
         });
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        if (animatorSet.isRunning()){
+            // 取消动画集合
+        }
+        super.onDestroy();
     }
 }
